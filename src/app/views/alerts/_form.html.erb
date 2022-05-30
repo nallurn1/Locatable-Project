@@ -1,0 +1,33 @@
+<%= form_with(model: alert, local: true) do |form| %>
+  <% if alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alert.errors.count, "error") %> prohibited this alert from being saved:</h2>
+
+      <ul>
+        <% alert.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" class="form-group" class="form-control">
+    <%= form.label :alert_text %>
+    <%= form.text_field :alert_text, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_id %>
+    <%# <%= form.number_field :contact_id %>
+    <%= form.collection_select(:contact_id, @contacts, :id, :contact_name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

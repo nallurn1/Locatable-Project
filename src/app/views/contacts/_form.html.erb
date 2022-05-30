@@ -1,0 +1,52 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: _form.html.erb
+  Description: Creating the view for updating contact information
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<%= form_with(model: contact, local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+        <% contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    
+    <%= form.text_field :contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.text_field :contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Phone %>
+    <%= form.text_field :contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Relationship %>
+    <%= form.text_field :contact_relation %>
+  </div>
+
+ <div class="field">
+    <%= form.label :UserId %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save Contact" %>
+  </div>
+<% end %>

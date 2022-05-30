@@ -1,0 +1,26 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: index.html.erb
+  Description: Format for the home page
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<div class="background">
+  <h1>Welcome to Locatable</h1>
+  <h2>A web-based application that allows the user to send their location to their emergency contacts and this sends an SMS and email notification.</h2>
+  <div class="background-filler"></div>
+    <hr>
+    <h2> </h2>
+    <p> </p>
+    <div class="buttons-container">
+        <%= link_to "  What is Locatable ", home_about_path, class: "btn btn-light btn-lg" %>
+        <h2> </h2>
+        <%= link_to "How to join Locatable", home_instructions_path, class: "btn btn-light btn-lg" %>
+    </div>
+  <img src=<%= asset_path 'logo.gif' %>>
+</div>
+<div class="background-filler">
+
+

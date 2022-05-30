@@ -1,0 +1,33 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: show.html.erb
+  Description: Showing the user's input for the requested contact
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contact.contact_name %>
+</p>
+
+<p>
+  <strong>E-Mail:</strong>
+  <%= @contact.contact_email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contact.contact_phone %>
+</p>
+
+<p>
+  <strong>Relation:</strong>
+  <%= @contact.contact_relation %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

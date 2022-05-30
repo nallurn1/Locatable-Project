@@ -1,0 +1,37 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: show.html.erb
+  Description: Creating a view for given user_location
+  Last modified on: 5/12/22
+  Code written by Nithya Nalluri
+%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @user_location.user_location_street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_location.user_location_city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_location.user_location_state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @user_location.user_location_country %>
+</p>
+
+<p>
+  <strong>IP Adress:</strong>
+  <%= @user_location.user_ip %>
+</p>
+
+<%= link_to 'Edit', edit_user_location_path(@user_location) %> |
+<%= link_to 'Back', user_locations_path %>

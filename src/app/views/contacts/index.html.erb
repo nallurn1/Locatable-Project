@@ -1,0 +1,45 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: index.html.erb
+  Description: Creating the view for the user to view all their contact information
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+
+
+<p id="notice"><%= notice %></p>
+<h1 class="text-center">Emergency Contacts</h1>
+<h1></h1>
+
+<table class="table table-striped", style= "width:100%;text-align:left;";>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Phone</th>
+      <th>Relation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.contact_name %></td>
+        <td><%= contact.contact_email %></td>
+        <td><%= contact.contact_phone %></td>
+        <td><%= contact.contact_relation %></td>
+        <td><%= link_to 'Show', contact, style: "color: black;" %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact), style: "color: black;" %></td>
+        <td><%= link_to 'Delete', contact, style: "color: black;", method: :delete, data: {confirm: 'Do you want to delete this contact?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="buttons-container">
+<%= link_to 'Create New Contact', new_contact_path, class: "btn btn-dark btn-lg" %>
+

@@ -1,0 +1,71 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: _navbar.html.erb
+  Description: Creating a view for the navbar
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<%# Contains the Bootstrap navbar that appears on each page. %>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #007BFF;">
+      <%= link_to 'Locatable', root_path, class: 'navbar-brand' %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </li>
+          <li class="nav-item">
+          <% if request.path =~ /\/contacts/ %>
+            <%= link_to 'Emerency Contacts', contacts_path, class: 'nav-link activated' %>
+          <% else %>
+            <%= link_to 'Emerency Contacts', contacts_path, class: 'nav-link' %>
+          <% end %>
+        </li> 
+
+        </li>
+          <li class="nav-item">
+          <% if request.path =~ /\/user_locations/ %>
+            <%= link_to 'Manage Your Locations', user_locations_path, class: 'nav-link activated' %>
+          <% else %>
+            <%= link_to 'Manage Your Locations', user_locations_path, class: 'nav-link' %>
+          <% end %>
+        </li> 
+
+        </li>
+          <li class="nav-item">
+          <% if request.path =~ /\/alerts/ %>
+            <%= link_to 'Manage Alerts', alerts_path, class: 'nav-link activated' %>
+          <% else %>
+            <%= link_to 'Manage Alerts', alerts_path, class: 'nav-link' %>
+          <% end %>
+        </li> 
+      
+
+        </ul>
+        <ul class="navbar-nav">
+          <%# If user, show account, else sign in %>
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+                Account
+              </a>
+              <%# Change to rails "link_to" for the actual links when implementing %>
+              <%# Make sure to include the css class as shown in the login example %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%# The rails administration panel link %>
+                <% if Rails.env.development? %><%= link_to 'Admin Settings', rails_admin_path, class: "dropdown-item" %><% end %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Manage Profile", user_profiles_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%# Devise requires that the logout command be sent using the 'delete' HTTP verb (method) %>
+                <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= button_to "Login", new_user_session_path, class: "btn btn-light" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>

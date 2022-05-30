@@ -1,0 +1,15 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: edit.html.erb
+  Description: Creating a view for the edit page with the links
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<h1>Editing User Profile</h1>
+
+<%= render 'form', user_profile: @user_profile %>
+
+<%= link_to 'Show', @user_profile %> |
+<%= link_to 'Back', user_profiles_path %>

@@ -1,0 +1,64 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: show.html.erb
+  Description: Creating a view for a selected user_profile
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_profile.user_name %>
+</p>
+
+<p>
+  <strong>EMail:</strong>
+  <%= @user_profile.user_email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user_profile.user_phone %>
+</p>
+
+<p>
+  <strong>Address line1:</strong>
+  <%= @user_profile.user_address_line1 %>
+</p>
+
+<p>
+  <strong>Address line2:</strong>
+  <%= @user_profile.user_address_line2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_profile.user_city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_profile.user_state %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @user_profile.user_zipcode %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @user_profile.user_country %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_profile.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

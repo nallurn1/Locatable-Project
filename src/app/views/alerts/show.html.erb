@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alert Message:</strong>
+  <%= @alert.alert_text %>
+</p>
+
+<p>
+  <strong>Contact's Name:</strong>
+  <%= @alert.contact_id %>
+</p>
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

@@ -1,0 +1,55 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: index.html.erb
+  Description: Index layout for the user_locations
+  Last modified on: 5/12/22
+  Code written by Nithya Nalluri
+%>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Your Locations</h1>
+<h1></h1>
+
+<%# View for the Search Bar%>
+<%= form_tag(user_locations_path, method: :get) do %>
+  <h6>Need To Look Up Your Old Locations?</h6> 
+  <h2></h2>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag("Search", :user_location_street => nil)%>
+<% end %>
+
+<h1></h1>
+<table class="table table-striped", style= "width:100%;text-align:left";>
+  <thead>
+    <tr>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Current IP address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @user_locations.each do |user_location| %>
+      <tr>
+        <td><%= user_location.user_location_street %></td>
+        <td><%= user_location.user_location_city %></td>
+        <td><%= user_location.user_location_state %></td>
+        <td><%= user_location.user_location_country %></td>
+        <td><%= user_location.user_ip %></td>
+        <td><%= link_to 'Show', user_location_path(user_location), style: "color: black;"%></td>
+        <td><%= link_to 'Edit', edit_user_location_path(user_location), style: "color: black;" %></td>
+        <td><%= link_to 'Delete', user_location,style: "color: black;", method: :delete, data: { confirm: 'Do you want to delete your location?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<div class="buttons-container">
+<%= link_to 'New Location', new_user_location_path, class: "btn btn-light btn-lg" %>

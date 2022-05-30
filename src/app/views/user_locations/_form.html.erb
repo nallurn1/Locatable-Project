@@ -1,0 +1,51 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: _form.html.erb
+  Description: Creating a view for editing page of user_loactions
+  Last modified on: 4/20/22
+  Code written by Nithya Nalluri
+%>
+
+<%= form_with(model: user_location, local: true) do |form| %>
+  <% if user_location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_location.errors.count, "error") %> prohibited this user_location from being saved:</h2>
+
+      <ul>
+        <% user_location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_location_street %>
+    <%= form.text_field :user_location_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_location_city %>
+    <%= form.text_field :user_location_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_location_state %>
+    <%= form.text_field :user_location_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_location_country %>
+    <%= form.text_field :user_location_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

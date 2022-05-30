@@ -1,0 +1,13 @@
+<%# 
+  Project name: Locatable
+  Description: Sending out alerts to the user's close contacts when they are in possible danger
+  Filename: new.html.erb
+  Description: Creating a view for new user_location page
+  Last modified on: 4/20/22
+%>
+
+<h1>New Location</h1>
+
+<%= render 'form', user_location: @user_location %>
+
+<%= link_to 'Back', user_locations_path %>
